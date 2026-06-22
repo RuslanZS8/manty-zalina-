@@ -1,0 +1,207 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #ffb6c1, #ffccd5);
+    font-family: "Pixelify Sans", sans-serif;
+    overflow: hidden;
+}
+
+/* Envelope Screen */
+#envelope-container {
+    text-align: center;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#envelope {
+    width: 200px;
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+}
+
+/* Letter Container */
+#letter-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.letter-window {
+    width: 90vw;
+    max-width: 800px;
+    min-height: 500px;
+    padding: 40px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff9fb;
+    border: 15px solid #ff9ebb;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    gap: 20px;
+    position: relative;
+
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #d81b60;
+    text-shadow: 2px 2px 0 #ffccd5;
+}
+
+/* Cat */
+.cat {
+    width: 200px;
+    margin: 10px 0;
+    transition: width 0.4s ease;
+}
+
+.letter-window.final .cat {
+    width: 180px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.no-wrapper {
+    position: relative;
+}
+
+.btn {
+    width: 140px;
+    height: auto;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 60px;
+        /* Larger touch area */
+    }
+
+    .no-btn {
+        touch-action: manipulation;
+        /* Improves touch response */
+    }
+}
+
+/* Prevent text selection on buttons */
+.btn {
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+}
+
+.yes-btn:hover {
+    transform: scale(1.05);
+}
+
+.no-btn {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.final-text {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    text-align: center;
+    color: #d81b60;
+    background-color: rgba(255, 240, 245, 0.9);
+    padding: 20px 30px;
+    border-radius: 15px;
+    border: 5px solid #ff9ebb;
+    margin-top: 20px;
+    max-width: 600px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .cat {
+        width: 150px;
+    }
+
+    .btn {
+        width: 120px;
+    }
+
+    .final-text {
+        font-size: 1.5rem;
+        padding: 15px 20px;
+    }
+
+    .letter-window {
+        padding: 30px 20px 20px 20px;
+        min-height: 400px;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .buttons {
+        gap: 20px;
+    }
+
+    .btn {
+        width: 100px;
+    }
+
+    .final-text {
+        font-size: 1.3rem;
+    }
+}
